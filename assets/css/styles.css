@@ -1,0 +1,173 @@
+/* General Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+}
+
+.card {
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    border: none;
+}
+
+.card-header {
+    border-radius: 10px 10px 0 0 !important;
+    padding: 15px 20px;
+}
+
+.avatar-placeholder {
+    width: 80px;
+    height: 80px;
+    font-size: 1.5rem;
+    background-color: #6c757d;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+}
+
+/* Navbar Styles */
+.navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+/* Badge Styles */
+.badge {
+    font-weight: 500;
+    padding: 5px 10px;
+    border-radius: 20px;
+}
+
+/* Button Styles */
+.btn {
+    border-radius: 20px;
+    padding: 8px 20px;
+    font-weight: 500;
+}
+
+.btn-sm {
+    padding: 5px 15px;
+    font-size: 0.8rem;
+}
+
+/* Table Styles */
+.table {
+    margin-bottom: 0;
+}
+
+.table th {
+    border-top: none;
+    font-weight: 600;
+    color: #495057;
+}
+
+/* Alert Styles */
+.alert {
+    border-radius: 8px;
+}
+
+/* Form Styles */
+.form-control, .form-select {
+    border-radius: 8px;
+    padding: 10px 15px;
+    border: 1px solid #ced4da;
+}
+
+.form-label {
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+/* Accordion Styles */
+.accordion-button {
+    font-weight: 500;
+    padding: 12px 20px;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: rgba(13, 110, 253, 0.1);
+    color: #0d6efd;
+}
+
+/* List Group Styles */
+.list-group-item {
+    border-radius: 8px !important;
+    margin-bottom: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Home Section */
+.home h1 {
+    animation: fadeInDown 1s both;
+  }
+  
+  .home .go-down {
+    animation: bounce 2s infinite;
+  }
+  
+  /* About Section */
+  .about .box {
+    animation: fadeIn 0.6s both;
+  }
+  .about .box:nth-child(1) {animation-delay: 0.2s;}
+  .about .box:nth-child(2) {animation-delay: 0.4s;}
+  .about .box:nth-child(3) {animation-delay: 0.6s;}
+  
+  /* Buttons */
+  .btn {
+    transition: all 0.3s ease;
+  }
+  .btn:hover {
+    animation: pulse 0.5s;
+  }
+
+
+  /* Add these to style.css, replacing the entire animate.css file */
+
+/* Selected animations only */
+.animated {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+  }
+  
+  /* Bounce - for call-to-action buttons */
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+    40% {transform: translateY(-10px);}
+    60% {transform: translateY(-5px);}
+  }
+  .bounce {animation-name: bounce;}
+  
+  /* FadeIn - for section reveals */
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+  .fadeIn {animation-name: fadeIn;}
+  
+  /* Pulse - for important elements */
+  @keyframes pulse {
+    0% {transform: scale(1);}
+    50% {transform: scale(1.05);}
+    100% {transform: scale(1);}
+  }
+  .pulse {animation-name: pulse; animation-iteration-count: infinite;}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .card-body {
+        padding: 15px;
+    }
+    
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+}
