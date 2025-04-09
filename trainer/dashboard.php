@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 
                 $pdo->commit();
                 $_SESSION['success'] = "Session scheduled successfully";
-                redirect("schedule.php");
+                redirect("../member/schedule.php");
             } catch (PDOException $e) {
                 $pdo->rollBack();
                 $_SESSION['error'] = "Failed to schedule session: " . $e->getMessage();
@@ -64,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } else {
             $_SESSION['error'] = "Failed to cancel session";
         }
-        redirect("schedule.php");
+        redirect("../member/schedule.php");
     }
 }
 
