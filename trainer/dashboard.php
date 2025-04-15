@@ -1,6 +1,6 @@
 <?php
 require_once '../includes/config.php';
-checkRole(['trainer']);
+checkRole(['trainer','admin']);
 $pageTitle = "Schedule Sessions";
 
 // Handle form submissions

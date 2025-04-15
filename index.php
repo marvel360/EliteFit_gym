@@ -1,144 +1,479 @@
 <?php
 require_once 'includes/config.php';
-require_once 'includes/header.php';
+// require_once 'includes/header.php';
 ?>
 
-<div class="hero-section bg-primary text-white py-5">
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EliteFit Gym</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+</head>
+<body>
+ 
+<!-- Start Header -->
+<header>
     <div class="container">
-        <div class="row align-items-center">
-            <div class="col-md-6">
-                <h1 class="display-4 fw-bold">Welcome to EliteFit Gym</h1>
-                <p class="lead">Your personalized fitness journey starts here with our Custom Gym Planning Portal.</p>
+        <div class="logo">
+            <a href="">EliteFit <span>Gym</span></a>
+        </div>
+        <a href="javascript:void(0)" class="ham-burger">
+            <span></span>    
+            <span></span>
+        </a>
+        <div class="nav">
+            <ul>
+                <li><a href="#home">Home</a></li>
                 <?php if (!isLoggedIn()): ?>
-                    <div class="d-flex gap-3 mt-4">
-                        <a href="register.php" class="btn btn-light btn-lg px-4">Join Now</a>
-                        <a href="login.php" class="btn btn-outline-light btn-lg px-4">Login</a>
-                    </div>
+                    <li><a href="register.php" class="btn">Join Now</a></li>
+                    <li><a href="login.php" class="btn">Login</a></li>
                 <?php else: ?>
-                    <a href="<?php echo BASE_URL; ?>/<?php echo $_SESSION['role']; ?>/dashboard.php" class="btn btn-light btn-lg px-4 mt-4">
+                    <li><a href="<?php echo BASE_URL; ?>/<?php echo $_SESSION['role']; ?>/dashboard.php" class="btn btn-light btn-lg px-4 mt-4">
+                        Go to Dashboard
+                    </a></li>
+                <?php endif; ?>
+                <li><a href="#about">About</a></li>
+                <li><a href="#service">Services</a></li>
+                <li><a href="#classes">Classes</a></li>
+                <li><a href="#schedule">Schedule</a></li>
+                <li><a href="#price">Price</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</header>
+<!-- End Header -->
+
+<!-- Start Home -->
+<section class="home wow flash" id="home">
+    <div class="container">
+        <h1 class="wow slideInLeft" data-wow-delay="1s">It's <span>gym</span> time. Let's go</h1>
+        <h1 class="wow slideInRight" data-wow-delay="1s">We are ready to <span>fit you</span></h1>
+    </div>
+    <!-- go down -->
+    <a href="#about" class="go-down">
+        <i class="fa fa-angle-down" aria-hidden="true"></i>
+    </a>
+    <!-- go down -->
+</section>
+<!-- End Home -->
+
+<!-- Start About -->
+<section class="about" id="about">
+    <div class="container">
+        <div class="content">
+            <div class="box wow bounceInUp">
+                <div class="inner">
+                    <div class="img">
+                        <img src="assets/images/about1.jpg" alt="about" />
+                    </div>
+                    <div class="text">
+                        <h4>Free Consultation</h4>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries</p>
+                    </div>
+                </div>
+            </div>
+            <div class="box wow bounceInUp" data-wow-delay="0.2s">
+                <div class="inner">
+                    <div class="img">
+                        <img src="assets/images/about2.jpg" alt="about" />
+                    </div>
+                    <div class="text">
+                        <h4>Best Training</h4>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries</p>
+                    </div>
+                </div>
+            </div>
+            <div class="box wow bounceInUp" data-wow-delay="0.4s">
+                <div class="inner">
+                    <div class="img">
+                        <img src="assets/images/about3.jpg" alt="about" />
+                    </div>
+                    <div class="text">
+                        <h4>Build Perfect Body</h4>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End About -->
+
+<!-- Start Service -->
+<section class="service" id="service">
+    <div class="container">
+        <div class="content">
+            <div class="text box wow slideInLeft">
+                <h2>Services</h2>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries</p>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries</p>
+                <?php if (!isLoggedIn()): ?>
+                    <a href="register.php" class="btn">Join Now</a>
+                    <a href="login.php" class="btn">Login</a>
+                <?php else: ?>
+                    <a href="<?php echo BASE_URL; ?>/<?php echo $_SESSION['role']; ?>/dashboard.php" class="btn">
                         Go to Dashboard
                     </a>
                 <?php endif; ?>
             </div>
-            <div class="col-md-6">
-                <img src="assets/images/gym-hero.jpg" alt="Fitness" class="img-fluid rounded">
+            <div class="accordian box wow slideInRight">
+                <div class="accordian-container active">
+                    <div class="head">
+                        <h4>Cardiovascular Equipment</h4>
+                        <span class="fa fa-angle-down"></span>
+                    </div>
+                    <div class="body">
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries</p>
+                    </div>
+                </div>
+                <div class="accordian-container">
+                    <div class="head">
+                        <h4>Strength Training Equipment</h4>
+                        <span class="fa fa-angle-up"></span>
+                    </div>
+                    <div class="body">
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries</p>
+                    </div>
+                </div>
+                <div class="accordian-container">
+                    <div class="head">
+                        <h4>Group Fitness Class</h4>
+                        <span class="fa fa-angle-up"></span>
+                    </div>
+                    <div class="body">
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries</p>
+                    </div>
+                </div>
+                <div class="accordian-container">
+                    <div class="head">
+                        <h4>Other Services</h4>
+                        <span class="fa fa-angle-up"></span>
+                    </div>
+                    <div class="body">
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
+</section>
+<!-- End Service -->
 
-<div class="features-section py-5">
+<!-- Start Classes -->
+<section class="classes" id="classes">
     <div class="container">
-        <h2 class="text-center mb-5">Why Choose EliteFit Gym?</h2>
-        <div class="row">
-            <div class="col-md-4 mb-4">
-                <div class="card h-100 border-0 shadow-sm">
-                    <div class="card-body text-center">
-                        <div class="feature-icon bg-primary bg-gradient text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
-                            <i class="fas fa-dumbbell fs-4"></i>
-                        </div>
-                        <h4 class="card-title">Personalized Workouts</h4>
-                        <p class="card-text">Get customized workout plans tailored to your fitness goals and experience level.</p>
-                    </div>
-                </div>
+        <div class="content">
+            <div class="box img wow slideInLeft">
+                <img src="assets/images/class2.png" alt="classes" />
             </div>
-            <div class="col-md-4 mb-4">
-                <div class="card h-100 border-0 shadow-sm">
-                    <div class="card-body text-center">
-                        <div class="feature-icon bg-success bg-gradient text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
-                            <i class="fas fa-user-tie fs-4"></i>
+            <div class="box text wow slideInRight">
+                <h2>Our Classes</h2>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</p>
+                <div class="class-items">
+                    <div class="item wow bounceInUp">
+                        <div class="item-img">
+                            <img src="assets/images/class1.jpg" alt="classes" />
+                            <div class="price">
+                                Ghc55
+                            </div>
                         </div>
-                        <h4 class="card-title">Expert Trainers</h4>
-                        <p class="card-text">Work with our certified trainers who will guide and motivate you throughout your journey.</p>
+                        <div class="item-text">
+                            <h4>Stretching Training</h4>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                            <a href="">Get Details</a>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="card h-100 border-0 shadow-sm">
-                    <div class="card-body text-center">
-                        <div class="feature-icon bg-info bg-gradient text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
-                            <i class="fas fa-chart-line fs-4"></i>
+                    <div class="item wow bounceInUp">
+                        <div class="item-text">
+                            <h4>Stretching Training</h4>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                            <a href="">Get Details</a>
                         </div>
-                        <h4 class="card-title">Progress Tracking</h4>
-                        <p class="card-text">Monitor your progress with our advanced analytics and stay motivated to reach your goals.</p>
+                        <div class="item-img">
+                            <img src="assets/images/class1.jpg" alt="classes" />
+                            <div class="price">
+                                Ghc99
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</section>
+<!-- End Classes -->
 
-<div class="testimonials-section bg-light py-5">
+<!-- Start Today -->
+<section class="start-today">
     <div class="container">
-        <h2 class="text-center mb-5">What Our Members Say</h2>
-        <div class="row">
-            <div class="col-md-4 mb-4">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <div class="mb-3">
-                            <i class="fas fa-quote-left text-muted fs-1"></i>
-                        </div>
-                        <p class="card-text">EliteFit Gym transformed my fitness journey. The personalized plans and expert trainers helped me achieve results I never thought possible.</p>
-                        <div class="d-flex align-items-center mt-4">
-                            <img src="assets/images/user1.jpg" class="rounded-circle me-3" width="50" height="50" alt="User">
-                            <div>
-                                <h6 class="mb-0">Sarah Johnson</h6>
-                                <small class="text-muted">Member since 2020</small>
-                            </div>
-                        </div>
+        <div class="content">
+            <div class="box text wow slideInLeft">
+                <h2>Start Your Training Today</h2>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</p>
+                <?php if (!isLoggedIn()): ?>
+                    <a href="register.php" class="btn">Join Now</a>
+                    <a href="login.php" class="btn">Login</a>
+                <?php else: ?>
+                    <a href="<?php echo BASE_URL; ?>/<?php echo $_SESSION['role']; ?>/dashboard.php" class="btn">
+                        Go to Dashboard
+                    </a>
+                <?php endif; ?>
+            </div>
+            <div class="box img wow slideInRight">
+                <img src="assets/images/gallery4.jpg" alt="start today" />
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Start Today -->
+
+<!-- Start Schedule -->
+<section class="schedule" id="schedule">
+    <div class="container">
+        <div class="content">
+            <div class="box text wow slideInLeft">
+                <h2>Classes Schedule</h2>
+                <p>
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,
+                </p>
+                <img src="assets/images/schedule1.png" alt="schedule" />
+            </div>
+            <div class="box timing wow slideInRight">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td class="day">Monday</td>
+                            <td><strong>9:00 AM</strong></td>
+                            <td>Body Building <br/> 9:00 to 10:00 AM</td>
+                            <td>Room No:210</td>
+                        </tr>
+                        <tr>
+                            <td class="day">Tuesday</td>
+                            <td><strong>9:00 AM</strong></td>
+                            <td>Body Building <br/> 9:00 to 10:00 AM</td>
+                            <td>Room No:210</td>
+                        </tr>
+                        <tr>
+                            <td class="day">Wednesday</td>
+                            <td><strong>9:00 AM</strong></td>
+                            <td>Body Building <br/> 9:00 to 10:00 AM</td>
+                            <td>Room No:210</td>
+                        </tr>
+                        <tr>
+                            <td class="day">Thursday</td>
+                            <td><strong>9:00 AM</strong></td>
+                            <td>Body Building <br/> 9:00 to 10:00 AM</td>
+                            <td>Room No:210</td>
+                        </tr>
+                        <tr>
+                            <td class="day">Friday</td>
+                            <td><strong>9:00 AM</strong></td>
+                            <td>Body Building <br/> 9:00 to 10:00 AM</td>
+                            <td>Room No:210</td>
+                        </tr>
+                        <tr>
+                            <td class="day">Saturday</td>
+                            <td><strong>9:00 AM</strong></td>
+                            <td>Body Building <br/> 9:00 to 10:00 AM</td>
+                            <td>Room No:210</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Schedule -->
+
+<!-- Start Gallery -->
+<section class="gallery" id="gallery">
+    <h2>Workout Gallery</h2>
+    <div class="content">
+        <div class="box wow slideInLeft">
+            <img src="assets/images/gallery1.jpg" alt="gallery" />
+        </div>
+        <div class="box wow slideInRight">
+            <img src="assets/images/gallery2.jpg" alt="gallery" />
+        </div>
+        <div class="box wow slideInLeft">
+            <img src="assets/images/gallery3.jpg" alt="gallery" />
+        </div>
+        <div class="box wow slideInRight">
+            <img src="assets/images/gallery4.jpg" alt="gallery" />
+        </div>
+    </div>
+</section>
+<!-- End Gallery -->
+
+<!-- Start Price -->
+<section class="price-package" id="price">
+    <div class="container">
+        <h2>Choose Your Package</h2>
+        <p class="title-p">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
+        <div class="content">
+            <div class="box wow bounceInUp">
+                <div class="inner">
+                    <div class="price-tag">
+                        Ghc59/Month
+                    </div>
+                    <div class="img">
+                        <img src="assets/images/price1.jpg" alt="price" />
+                    </div>
+                    <div class="text">
+                        <h3>Body Building Training</h3>
+                        <p>Get Free WiFi</p>
+                        <p>Month to Month</p>
+                        <p>No Time Restrictions</p>
+                        <p>Gym and Cardio</p>
+                        <p>Service Locker Rooms</p>
+                        <?php if (!isLoggedIn()): ?>
+                            <a href="register.php" class="btn">Join Now</a>
+                        <?php else: ?>
+                            <a href="<?php echo BASE_URL; ?>/<?php echo $_SESSION['role']; ?>/dashboard.php" class="btn">
+                                Go to Dashboard
+                            </a>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 mb-4">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <div class="mb-3">
-                            <i class="fas fa-quote-left text-muted fs-1"></i>
-                        </div>
-                        <p class="card-text">The custom planning portal is a game-changer. I can schedule sessions, track my progress, and communicate with my trainer all in one place.</p>
-                        <div class="d-flex align-items-center mt-4">
-                            <img src="assets/images/user2.jpg" class="rounded-circle me-3" width="50" height="50" alt="User">
-                            <div>
-                                <h6 class="mb-0">Michael Chen</h6>
-                                <small class="text-muted">Member since 2021</small>
-                            </div>
-                        </div>
+            <div class="box wow bounceInUp" data-wow-delay="0.2s">
+                <div class="inner">
+                    <div class="price-tag">
+                        Ghc69/Month
+                    </div>
+                    <div class="img">
+                        <img src="assets/images/price2.jpg" alt="price" />
+                    </div>
+                    <div class="text">
+                        <h3>Body Building Training</h3>
+                        <p>Get Free WiFi</p>
+                        <p>Month to Month</p>
+                        <p>No Time Restrictions</p>
+                        <p>Gym and Cardio</p>
+                        <p>Service Locker Rooms</p>
+                        <?php if (!isLoggedIn()): ?>
+                            <a href="register.php" class="btn">Join Now</a>
+                        <?php else: ?>
+                            <a href="<?php echo BASE_URL; ?>/<?php echo $_SESSION['role']; ?>/dashboard.php" class="btn">
+                                Go to Dashboard
+                            </a>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 mb-4">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <div class="mb-3">
-                            <i class="fas fa-quote-left text-muted fs-1"></i>
-                        </div>
-                        <p class="card-text">As a busy professional, I appreciate how EliteFit adapts to my schedule while keeping me accountable to my fitness goals.</p>
-                        <div class="d-flex align-items-center mt-4">
-                            <img src="assets/images/user3.jpg" class="rounded-circle me-3" width="50" height="50" alt="User">
-                            <div>
-                                <h6 class="mb-0">David Rodriguez</h6>
-                                <small class="text-muted">Member since 2019</small>
-                            </div>
-                        </div>
+            <div class="box wow bounceInUp" data-wow-delay="0.4s">
+                <div class="inner">
+                    <div class="price-tag">
+                        Ghc99/Month
+                    </div>
+                    <div class="img">
+                        <img src="assets/images/price3.jpg" alt="price" />
+                    </div>
+                    <div class="text">
+                        <h3>Body Building Training</h3>
+                        <p>Get Free WiFi</p>
+                        <p>Month to Month</p>
+                        <p>No Time Restrictions</p>
+                        <p>Gym and Cardio</p>
+                        <p>Service Locker Rooms</p>
+                        <?php if (!isLoggedIn()): ?>
+                            <a href="register.php" class="btn">Join Now</a>
+                        <?php else: ?>
+                            <a href="<?php echo BASE_URL; ?>/<?php echo $_SESSION['role']; ?>/dashboard.php" class="btn">
+                                Go to Dashboard
+                            </a>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</section>
+<!-- End Price -->
 
-<div class="cta-section py-5 bg-primary text-white">
-    <div class="container text-center">
-        <h2 class="mb-4">Ready to Start Your Fitness Journey?</h2>
-        <p class="lead mb-4">Join EliteFit Gym today and experience the difference of personalized fitness planning.</p>
-        <?php if (!isLoggedIn()): ?>
-            <a href="register.php" class="btn btn-light btn-lg px-5">Get Started</a>
-        <?php else: ?>
-            <a href="<?php echo BASE_URL; ?>/<?php echo $_SESSION['role']; ?>/dashboard.php" class="btn btn-light btn-lg px-5">
-                Go to Dashboard
-            </a>
-        <?php endif; ?>
+<!-- Start Contact -->
+<section class="contact" id="contact">
+    <div class="container">
+        <div class="content">
+            <div class="box form wow slideInLeft">
+                <form>
+                    <input type="text" placeholder="Enter Name">
+                    <input type="text" placeholder="Enter Email">
+                    <input type="text" placeholder="Enter Mobile">
+                    <textarea placeholder="Enter Message"></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+            <div class="box text wow slideInRight">
+                <h2>Get Connected with Gym</h2>
+                <p class="title-p">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                <div class="info">
+                    <ul>
+                        <li><span class="fa fa-map-marker"></span>Regional Maritime University,Nungua</li>
+                        <li><span class="fa fa-phone"></span>0504459284</li>
+                        <li><span class="fa fa-envelope"></span> info@elitefitgym.com</li>
+                    </ul>
+                </div>
+                <div class="social">
+                    <a href=""><span class="fa fa-facebook"></span></a>
+                    <a href=""><span class="fa fa-linkedin"></span></a>
+                    <a href=""><span class="fa fa-skype"></span></a>
+                    <a href=""><span class="fa fa-youtube-play"></span></a>
+                </div>
+                <div class="copy">
+                    PoweredBy &copy; Marvel
+                </div>
+            </div>
+        </div>
     </div>
-</div>
+</section>
+<!-- End Contact -->
 
-<?php require_once 'includes/footer.php'; ?>
+<!-- jquery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $(".ham-burger, .nav ul li a").click(function(){
+            $(".nav").toggleClass("open")
+            $(".ham-burger").toggleClass("active");
+        })      
+        
+        $(".accordian-container").click(function(){
+            $(".accordian-container").children(".body").slideUp();
+            $(".accordian-container").removeClass("active")
+            $(".accordian-container").children(".head").children("span").removeClass("fa-angle-down").addClass("fa-angle-up")
+            $(this).children(".body").slideDown();
+            $(this).addClass("active")
+            $(this).children(".head").children("span").removeClass("fa-angle-up").addClass("fa-angle-down")
+        })
+
+        $(".nav ul li a, .go-down").click(function(event){
+            if(this.hash !== ""){
+                event.preventDefault();
+                var hash=this.hash; 
+                $('html,body').animate({
+                    scrollTop:$(hash).offset().top
+                },800 , function(){
+                    window.location.hash=hash;
+                });
+
+                // add active class in navigation
+                $(".nav ul li a").removeClass("active")
+                $(this).addClass("active")
+            }
+        })
+    })
+</script>
+<script src="assets/js/wow.min.js"></script>
+<script>
+    wow = new WOW({
+        animateClass: 'animated',
+        offset: 0,
+    });
+    wow.init();
+</script>
+</body>
+</html>

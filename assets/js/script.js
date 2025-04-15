@@ -42,4 +42,14 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+
+    function markNotificationRead(notificationId) {
+        fetch(`${BASE_URL}/mark_notification_read.php?id=${notificationId}`);
+    }
+    
+    // Time-ago helper (used in notifications)
+    function time_elapsed_string(datetime) {
+        // Implementation from earlier
+    }
 });

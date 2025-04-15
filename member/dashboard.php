@@ -31,6 +31,7 @@ require_once '../includes/header.php';
 ?>
 
 <div class="row">
+    
     <div class="col-md-4">
         <div class="card mb-4">
             <div class="card-header bg-primary text-white">
@@ -64,7 +65,7 @@ require_once '../includes/header.php';
                         ?>
                     </div>
                 </div>
-                <a href="#" class="btn btn-sm btn-outline-primary w-100 mt-2">Edit Profile</a>
+                <!-- <a href="#" class="btn btn-sm btn-outline-primary w-100 mt-2">Edit Profile</a> -->
             </div>
         </div>
     </div>

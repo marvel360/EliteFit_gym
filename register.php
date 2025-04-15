@@ -2,6 +2,7 @@
 require_once 'includes/config.php';
 require_once 'includes/header.php';
 
+
 $errors = [];
 $success = false;
 
@@ -112,5 +113,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
     </div>
 </div>
+
 
 <?php require_once 'includes/footer.php'; ?>

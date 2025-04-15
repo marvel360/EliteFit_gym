@@ -27,107 +27,114 @@ $recentMembers = $stmt->fetchAll();
 require_once '../includes/header.php';
 ?>
 
-<div class="row mb-4">
-    <div class="col-md-3">
-        <div class="card text-white bg-primary">
-            <div class="card-body">
-                <h5 class="card-title">Total Members</h5>
-                <h1 class="display-4"><?php echo $totalMembers; ?></h1>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="card text-white bg-success">
-            <div class="card-body">
-                <h5 class="card-title">Total Trainers</h5>
-                <h1 class="display-4"><?php echo $totalTrainers; ?></h1>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="card text-white bg-info">
-            <div class="card-body">
-                <h5 class="card-title">Active Plans</h5>
-                <h1 class="display-4"><?php echo $activePlans; ?></h1>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="card text-white bg-warning">
-            <div class="card-body">
-                <h5 class="card-title">Equipment</h5>
-                <h1 class="display-4"><?php echo $equipmentCount; ?></h1>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-md-6">
-        <div class="card mb-4">
-            <div class="card-header bg-primary text-white">
-                <h5>Recent Members</h5>
-            </div>
-            <div class="card-body">
-                <?php if (empty($recentMembers)): ?>
-                    <div class="alert alert-info">
-                        No members have registered yet.
-                    </div>
-                <?php else: ?>
-                    <div class="table-responsive">
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Username</th>
-                                    <th>Joined</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php foreach ($recentMembers as $member): ?>
-                                    <tr>
-                                        <td><?php echo htmlspecialchars($member['first_name'] . ' ' . $member['last_name']); ?></td>
-                                        <td><?php echo htmlspecialchars($member['username']); ?></td>
-                                        <td><?php echo date('M j, Y', strtotime($member['created_at'])); ?></td>
-                                        <td>
-                                            <a href="manage_users.php?view=<?php echo $member['user_id']; ?>" class="btn btn-sm btn-outline-primary">
-                                                View
-                                            </a>
-                                        </td>
-                                    </tr>
-                                <?php endforeach; ?>
-                            </tbody>
-                        </table>
-                    </div>
-                <?php endif; ?>
-            </div>
-        </div>
-    </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../assets/css/styles.css">
+</head>
+<body>
     
-    <div class="col-md-6">
-        <div class="card">
-            <div class="card-header bg-success text-white">
-                <h5>Quick Actions</h5>
+    
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <i class="fas fa-crown"></i> <span>EliteFit Admin</span>
             </div>
-            <div class="card-body">
-                <div class="d-grid gap-2">
-                    <a href="manage_users.php" class="btn btn-outline-primary">
-                        <i class="fas fa-users"></i> Manage Users
-                    </a>
-                    <a href="../equipment/manage_equipment.php" class="btn btn-outline-success">
-                        <i class="fas fa-dumbbell"></i> Manage Equipment
-                    </a>
-                    <a href="#" class="btn btn-outline-info">
-                        <i class="fas fa-chart-line"></i> View Reports
-                    </a>
-                    <a href="#" class="btn btn-outline-warning">
-                        <i class="fas fa-cog"></i> System Settings
-                    </a>
+            <nav class="sidebar-nav">
+                <a href="#" class="active"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                <a href="manage_users.php"><i class="fas fa-users"></i> Manage Users</a>
+            <a href="../equipment/dashboard.php"><i class="fas fa-dumbbell"></i> Equipment</a>
+            <a href="../trainer/dashboard.php"><i class="fas fa-calendar-alt"></i> Sessions</a>
+            <!-- <a href="#"><i class="fas fa-chart-line"></i> Analytics</a> -->
+            
+        </nav>
+        <div class="sidebar-footer">
+            <a href="../logout.php" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </div>
+    </aside>
+    
+    <!-- Main Content -->
+    <main class="main-content">
+        <header class="admin-header">
+            <h1>Admin Dashboard</h1>
+            <div class="admin-profile">
+                <img src="https://ui-avatars.com/api/?name=Admin&background=1e3c72&color=fff" alt="Admin">
+                <span>Administrator</span>
+            </div>
+        </header>
+        
+        <!-- Stats Cards -->
+        <div class="stats-grid">
+            <div class="stat-card bg-accent">
+                <div class="stat-icon"><i class="fas fa-users"></i></div>
+                <div class="stat-info">
+                    <h3><?php echo $totalMembers; ?></h3>
+                    <p>Total Members</p>
+                </div>
+            </div>
+            <div class="stat-card bg-accent">
+                <div class="stat-icon"><i class="fas fa-user-tie"></i></div>
+                <div class="stat-info">
+                    <h3><?php echo $totalTrainers; ?></h3>
+                    <p>Total Trainers</p>
+                </div>
+            </div>
+            <div class="stat-card bg-accent">
+                <div class="stat-icon"><i class="fas fa-calendar-check"></i></div>
+                <div class="stat-info">
+                    <h3><?php echo $activePlans; ?></h3>
+                    <p>Active Plans</p>
+                </div>
+            </div>
+            <div class="stat-card bg-accent">
+                <div class="stat-icon"><i class="fas fa-dumbbell"></i></div>
+                <div class="stat-info">
+                    <h3><?php echo $equipmentCount; ?></h3>
+                    <p>Equipment</p>
                 </div>
             </div>
         </div>
-    </div>
+        
+        <!-- Recent Members Table -->
+        <div class="recent-activity">
+            <h2>Recent Members</h2>
+            <div class="activity-list">
+                <?php if (empty($recentMembers)): ?>
+                    <div class="alert alert-info">No members have registered yet.</div>
+                    <?php else: ?>
+                        <?php foreach ($recentMembers as $member): ?>
+                        <div class="activity-item">
+                            <div class="activity-icon primary">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="activity-details">
+                                <p><?php echo htmlspecialchars($member['first_name'] . ' ' . $member['last_name']); ?> (<?php echo htmlspecialchars($member['username']); ?>)</p>
+                                <small>Joined on <?php echo date('M j, Y', strtotime($member['created_at'])); ?></small>
+                            </div>
+                            <div class="ms-auto">
+                                <a href="manage_users.php?view=<?php echo $member['user_id']; ?>" class="btn btn-sm btn-outline-primary">View</a>
+                            </div>
+                        </div>
+                        <?php endforeach; ?>
+                        <?php endif; ?>
+            </div>
+        </div>
+        
+        <!-- Quick Actions -->
+        <div class="quick-actions">
+            <h2>Quick Actions</h2>
+            <div class="action-buttons">
+                <a href="manage_users.php" class="action-btn"><i class="fas fa-users"></i><span>Manage Users</span></a>
+                <a href="../equipment/dashboard.php" class="action-btn"><i class="fas fa-dumbbell"></i><span>Manage Equipment</span></a>
+                <!-- <a href="#" class="action-btn"><i class="fas fa-chart-line"></i><span>View Reports</span></a> -->
+            </div>
+        </div>
+    </main>
 </div>
 
 <?php require_once '../includes/footer.php'; ?>
+</body>
+</html>

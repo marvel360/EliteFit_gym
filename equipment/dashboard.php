@@ -1,6 +1,6 @@
 <?php
 require_once '../includes/config.php';
-checkRole(['equipment']);
+checkRole(['equipment' , 'admin']);
 $pageTitle = "Equipment Dashboard";
 
 // Handle form submissions
@@ -174,5 +174,4 @@ if (isset($_SESSION['success'])) {
         </div>
     </div>
 </div>
-
 <?php require_once '../includes/footer.php'; ?>
