@@ -167,7 +167,7 @@ require_once 'includes/config.php';
     <div class="container">
         <div class="content">
             <div class="box img wow slideInLeft">
-                <img src="assets/images/class2.png" alt="classes" />
+                <img src="assets/images/gym-hero.jpg" alt="classes" />
             </div>
             <div class="box text wow slideInRight">
                 <h2>Our Classes</h2>
@@ -302,7 +302,7 @@ require_once 'includes/config.php';
             <img src="assets/images/gallery3.jpg" alt="gallery" />
         </div>
         <div class="box wow slideInRight">
-            <img src="assets/images/gallery4.jpg" alt="gallery" />
+            <img src="assets/images/user1.jpg" alt="gallery" />
         </div>
     </div>
 </section>

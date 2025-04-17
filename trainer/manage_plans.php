@@ -173,23 +173,31 @@ if (isset($_SESSION['success'])) {
                             <label class="form-label">Description</label>
                             <textarea class="form-control" name="description" rows="3"><?php echo htmlspecialchars($viewPlan['description']); ?></textarea>
                         </div>
-                        
-                        <div class="mb-3">
-                            <label class="form-label">Status</label>
-                            <select class="form-select" name="status" required>
-                                <option value="pending" <?php echo $viewPlan['status'] === 'pending' ? 'selected' : ''; ?>>Pending</option>
-                                <option value="approved" <?php echo $viewPlan['status'] === 'approved' ? 'selected' : ''; ?>>Approved</option>
-                                <option value="rejected" <?php echo $viewPlan['status'] === 'rejected' ? 'selected' : ''; ?>>Rejected</option>
-                            </select>
-                        </div>
+                       
                         
                         <div class="mb-3">
                             <label class="form-label">Member</label>
                             <input type="text" class="form-control" value="<?php echo htmlspecialchars($viewPlan['first_name'] . ' ' . $viewPlan['last_name']); ?>" readonly>
                         </div>
-                        
-                        <button type="submit" name="update_plan" class="btn btn-primary">Update Plan</button>
-                    </form>
+                        <div class="mb-3">
+                            <label class="form-label">Status</label>
+                            <div>
+                                <form method="post" style="display:inline;">
+                                    <input type="hidden" name="plan_id" value="<?php echo $viewPlan['plan_id']; ?>">
+                                    <input type="hidden" name="status" value="approved">
+                                    <button type="submit" name="update_plan" class="btn btn-success">
+                                        Approve
+                                    </button>
+                                </form>
+                                <form method="post" style="display:inline;">
+                                    <input type="hidden" name="plan_id" value="<?php echo $viewPlan['plan_id']; ?>">
+                                    <input type="hidden" name="status" value="rejected">
+                                    <button type="submit" name="update_plan" class="btn btn-danger">
+                                        Reject
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
                 </div>
             </div>
             

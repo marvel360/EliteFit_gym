@@ -178,10 +178,10 @@ if (isset($_SESSION['success'])) {
                         
                         <div class="d-flex justify-content-between">
                             <button type="submit" name="update_user" class="btn btn-primary">Update User</button>
-                            <button type="submit" name="reset_password" class="btn btn-outline-danger" 
+                            <!-- <button type="submit" name="reset_password" class="btn btn-outline-danger" 
                                     onclick="return confirm('Are you sure you want to reset this user\\'s password?')">
                                 Reset Password
-                            </button>
+                            </button>    -->
                         </div>
                     </form>
                 </div>
