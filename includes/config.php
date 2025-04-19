@@ -36,4 +36,12 @@ function checkRole($allowedRoles) {
         redirect(BASE_URL . '/login.php');
     }
 }
+
+
+// In config.php
+define('SMTP_HOST', 'smtp.gmail.com');
+define('SMTP_USER', 'codexcoder082@gmail.com');
+define('SMTP_PASS', 'ngxblhhvslnvcflr');
+define('SMTP_PORT', 587);
+define('SMTP_SECURE', 'tls');
 ?>

@@ -1,0 +1,92 @@
+2: Invalid address:  (From): 
+2: Invalid address:  (From): 
+2: Invalid address:  (From): 
+2: Invalid address:  (From): 
+2: SERVER -> CLIENT: 220 smtp.gmail.com ESMTP a640c23a62f3a-acb6ef482f0sm307701966b.142 - gsmtp
+
+1: CLIENT -> SERVER: EHLO localhost
+
+2: SERVER -> CLIENT: 250-smtp.gmail.com at your service, [102.176.94.224]
+250-SIZE 35882577
+250-8BITMIME
+250-STARTTLS
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+1: CLIENT -> SERVER: STARTTLS
+
+2: SERVER -> CLIENT: 220 2.0.0 Ready to start TLS
+
+1: CLIENT -> SERVER: EHLO localhost
+
+2: SERVER -> CLIENT: 250-smtp.gmail.com at your service, [102.176.94.224]
+250-SIZE 35882577
+250-8BITMIME
+250-AUTH LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+1: CLIENT -> SERVER: AUTH LOGIN
+
+2: SERVER -> CLIENT: 334 VXNlcm5hbWU6
+
+1: CLIENT -> SERVER: [credentials hidden]
+2: SERVER -> CLIENT: 334 UGFzc3dvcmQ6
+
+1: CLIENT -> SERVER: [credentials hidden]
+2: SERVER -> CLIENT: 235 2.7.0 Accepted
+
+1: CLIENT -> SERVER: MAIL FROM:<no-reply@elitefit.com>
+
+2: SERVER -> CLIENT: 250 2.1.0 OK a640c23a62f3a-acb6ef482f0sm307701966b.142 - gsmtp
+
+1: CLIENT -> SERVER: RCPT TO:<jcorimond@gmail.com>
+
+2: SERVER -> CLIENT: 250 2.1.5 OK a640c23a62f3a-acb6ef482f0sm307701966b.142 - gsmtp
+
+1: CLIENT -> SERVER: DATA
+
+2: SERVER -> CLIENT: 354 Go ahead a640c23a62f3a-acb6ef482f0sm307701966b.142 - gsmtp
+
+1: CLIENT -> SERVER: Date: Sat, 19 Apr 2025 19:38:31 +0000
+
+1: CLIENT -> SERVER: To: codex coder <jcorimond@gmail.com>
+
+1: CLIENT -> SERVER: From: EliteFit Gym <no-reply@elitefit.com>
+
+1: CLIENT -> SERVER: Subject: Verify Your EliteFit Gym Account
+
+1: CLIENT -> SERVER: Message-ID: <M8cHTfNLYhOMpU6IuUNRWZVf5wRY4IwkQ2tgFKAuIg@localhost>
+
+1: CLIENT -> SERVER: X-Mailer: PHPMailer 6.9.3 (https://github.com/PHPMailer/PHPMailer)
+
+1: CLIENT -> SERVER: MIME-Version: 1.0
+
+1: CLIENT -> SERVER: Content-Type: text/html; charset=iso-8859-1
+
+1: CLIENT -> SERVER: 
+
+1: CLIENT -> SERVER: 
+
+1: CLIENT -> SERVER:             <h2>Welcome to EliteFit Gym, codex!</h2>
+
+1: CLIENT -> SERVER:             <p>Your verification code is: <strong>126640</strong></p>
+
+1: CLIENT -> SERVER:             <p>This code will expire in 30 minutes.</p>
+
+1: CLIENT -> SERVER:         
+
+1: CLIENT -> SERVER: 
+
+1: CLIENT -> SERVER: .
+
+2: SERVER -> CLIENT: 250 2.0.0 OK  1745091517 a640c23a62f3a-acb6ef482f0sm307701966b.142 - gsmtp
+
+1: CLIENT -> SERVER: QUIT
+
+2: SERVER -> CLIENT: 221 2.0.0 closing connection a640c23a62f3a-acb6ef482f0sm307701966b.142 - gsmtp
+

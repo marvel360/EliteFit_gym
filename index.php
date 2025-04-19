@@ -299,7 +299,7 @@ require_once 'includes/config.php';
             <img src="assets/images/gallery2.jpg" alt="gallery" />
         </div>
         <div class="box wow slideInLeft">
-            <img src="assets/images/gallery3.jpg" alt="gallery" />
+            <img src="assets/images/user2.jpg" alt="gallery" />
         </div>
         <div class="box wow slideInRight">
             <img src="assets/images/user1.jpg" alt="gallery" />

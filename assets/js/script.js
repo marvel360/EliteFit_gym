@@ -52,4 +52,16 @@ document.addEventListener('DOMContentLoaded', function() {
     function time_elapsed_string(datetime) {
         // Implementation from earlier
     }
+
+    // Format a date to DD-MM-YYYY
+const formatDate = (date) => {
+    const day = String(date.getDate()).padStart(2, '0'); // Ensure 2 digits (e.g., 05)
+    const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are 0-indexed
+    const year = date.getFullYear();
+    return `${day}-${month}-${year}`;
+  };
+  
+  // Example usage:
+  const today = new Date();
+  console.log(formatDate(today)); // Output: 20-04-2025
 });
