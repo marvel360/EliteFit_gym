@@ -64,4 +64,13 @@ const formatDate = (date) => {
   // Example usage:
   const today = new Date();
   console.log(formatDate(today)); // Output: 20-04-2025
+
+
+
+  $(document).ready(function() {
+    $('.datepicker').datepicker({
+        dateFormat: 'dd-mm-yy',
+        minDate: 0
+    });
+});
 });
