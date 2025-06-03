@@ -38,10 +38,10 @@ try {
     try {
         // Server settings
         $mail->isSMTP();
-        $mail->Host = 'smtp.example.com';
+        $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
-        $mail->Username = 'your_email@example.com';
-        $mail->Password = 'your_email_password';
+        $mail->Username = 'codexcoder082@gmail.com';
+        $mail->Password = '';// Use your SMTP password here
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
         $mail->Port = 465;
         

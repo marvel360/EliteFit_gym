@@ -90,3 +90,189 @@
 
 2: SERVER -> CLIENT: 221 2.0.0 closing connection a640c23a62f3a-acb6ef482f0sm307701966b.142 - gsmtp
 
+1: SMTP ERROR: Failed to connect to server: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond (10060)
+2: SMTP Error: Could not connect to SMTP host. Failed to connect to server
+1: SMTP ERROR: Failed to connect to server: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond (10060)
+2: SMTP Error: Could not connect to SMTP host. Failed to connect to server
+1: SMTP ERROR: Failed to connect to server: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond (10060)
+2: SMTP Error: Could not connect to SMTP host. Failed to connect to server
+1: SMTP ERROR: Failed to connect to server: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond (10060)
+2: SMTP Error: Could not connect to SMTP host. Failed to connect to server
+2: SERVER -> CLIENT: 220 smtp.gmail.com ESMTP 4fb4d7f45d1cf-5fa7781bf5fsm301491a12.36 - gsmtp
+
+1: CLIENT -> SERVER: EHLO localhost
+
+2: SERVER -> CLIENT: 250-smtp.gmail.com at your service, [102.208.188.252]
+250-SIZE 35882577
+250-8BITMIME
+250-STARTTLS
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+1: CLIENT -> SERVER: STARTTLS
+
+2: SERVER -> CLIENT: 220 2.0.0 Ready to start TLS
+
+1: CLIENT -> SERVER: EHLO localhost
+
+2: SERVER -> CLIENT: 250-smtp.gmail.com at your service, [102.208.188.252]
+250-SIZE 35882577
+250-8BITMIME
+250-AUTH LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+1: CLIENT -> SERVER: AUTH LOGIN
+
+2: SERVER -> CLIENT: 334 VXNlcm5hbWU6
+
+1: CLIENT -> SERVER: [credentials hidden]
+2: SERVER -> CLIENT: 334 UGFzc3dvcmQ6
+
+1: CLIENT -> SERVER: [credentials hidden]
+2: SERVER -> CLIENT: 235 2.7.0 Accepted
+
+1: CLIENT -> SERVER: MAIL FROM:<no-reply@elitefit.com>
+
+2: SERVER -> CLIENT: 250 2.1.0 OK 4fb4d7f45d1cf-5fa7781bf5fsm301491a12.36 - gsmtp
+
+1: CLIENT -> SERVER: RCPT TO:<sarahdavs299@gmail.com>
+
+2: SERVER -> CLIENT: 250 2.1.5 OK 4fb4d7f45d1cf-5fa7781bf5fsm301491a12.36 - gsmtp
+
+1: CLIENT -> SERVER: DATA
+
+2: SERVER -> CLIENT: 354 Go ahead 4fb4d7f45d1cf-5fa7781bf5fsm301491a12.36 - gsmtp
+
+1: CLIENT -> SERVER: Date: Fri, 2 May 2025 02:56:04 +0300
+
+1: CLIENT -> SERVER: To: Sarah Davies <sarahdavs299@gmail.com>
+
+1: CLIENT -> SERVER: From: EliteFit Gym <no-reply@elitefit.com>
+
+1: CLIENT -> SERVER: Subject: Verify Your EliteFit Gym Account
+
+1: CLIENT -> SERVER: Message-ID: <qYrUsgNfbLncCow5FsyQ2nwra73vtksnq3OT5gswA@localhost>
+
+1: CLIENT -> SERVER: X-Mailer: PHPMailer 6.9.3 (https://github.com/PHPMailer/PHPMailer)
+
+1: CLIENT -> SERVER: MIME-Version: 1.0
+
+1: CLIENT -> SERVER: Content-Type: text/html; charset=iso-8859-1
+
+1: CLIENT -> SERVER: 
+
+1: CLIENT -> SERVER: 
+
+1: CLIENT -> SERVER:             <h2>Welcome to EliteFit Gym, Sarah!</h2>
+
+1: CLIENT -> SERVER:             <p>Your verification code is: <strong>794433</strong></p>
+
+1: CLIENT -> SERVER:             <p>This code will expire in 30 minutes.</p>
+
+1: CLIENT -> SERVER:         
+
+1: CLIENT -> SERVER: 
+
+1: CLIENT -> SERVER: .
+
+2: SERVER -> CLIENT: 250 2.0.0 OK  1746143772 4fb4d7f45d1cf-5fa7781bf5fsm301491a12.36 - gsmtp
+
+1: CLIENT -> SERVER: QUIT
+
+2: SERVER -> CLIENT: 221 2.0.0 closing connection 4fb4d7f45d1cf-5fa7781bf5fsm301491a12.36 - gsmtp
+
+1: SMTP ERROR: Failed to connect to server: php_network_getaddresses: getaddrinfo for smtp.gmail.com failed: No such host is known.  (0)
+2: SMTP Error: Could not connect to SMTP host. Failed to connect to server
+2: SERVER -> CLIENT: 220 smtp.gmail.com ESMTP 5b1f17b1804b1-450d7fa2541sm158884825e9.15 - gsmtp
+
+1: CLIENT -> SERVER: EHLO localhost
+
+2: SERVER -> CLIENT: 250-smtp.gmail.com at your service, [102.176.94.27]
+250-SIZE 35882577
+250-8BITMIME
+250-STARTTLS
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+1: CLIENT -> SERVER: STARTTLS
+
+2: SERVER -> CLIENT: 220 2.0.0 Ready to start TLS
+
+1: CLIENT -> SERVER: EHLO localhost
+
+2: SERVER -> CLIENT: 250-smtp.gmail.com at your service, [102.176.94.27]
+250-SIZE 35882577
+250-8BITMIME
+250-AUTH LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+1: CLIENT -> SERVER: AUTH LOGIN
+
+2: SERVER -> CLIENT: 334 VXNlcm5hbWU6
+
+1: CLIENT -> SERVER: [credentials hidden]
+2: SERVER -> CLIENT: 334 UGFzc3dvcmQ6
+
+1: CLIENT -> SERVER: [credentials hidden]
+2: SERVER -> CLIENT: 235 2.7.0 Accepted
+
+1: CLIENT -> SERVER: MAIL FROM:<no-reply@elitefit.com>
+
+2: SERVER -> CLIENT: 250 2.1.0 OK 5b1f17b1804b1-450d7fa2541sm158884825e9.15 - gsmtp
+
+1: CLIENT -> SERVER: RCPT TO:<harry-johnson.agyemang@rmu.edu.gh>
+
+2: SERVER -> CLIENT: 250 2.1.5 OK 5b1f17b1804b1-450d7fa2541sm158884825e9.15 - gsmtp
+
+1: CLIENT -> SERVER: DATA
+
+2: SERVER -> CLIENT: 354 Go ahead 5b1f17b1804b1-450d7fa2541sm158884825e9.15 - gsmtp
+
+1: CLIENT -> SERVER: Date: Tue, 3 Jun 2025 16:30:21 +0300
+
+1: CLIENT -> SERVER: To: Harry Johnson <harry-johnson.agyemang@rmu.edu.gh>
+
+1: CLIENT -> SERVER: From: EliteFit Gym <no-reply@elitefit.com>
+
+1: CLIENT -> SERVER: Subject: Verify Your EliteFit Gym Account
+
+1: CLIENT -> SERVER: Message-ID: <EnPrEI2bX4Bm1nINmKBgFhAdVN2EqPkCXXZeYL1I@localhost>
+
+1: CLIENT -> SERVER: X-Mailer: PHPMailer 6.9.3 (https://github.com/PHPMailer/PHPMailer)
+
+1: CLIENT -> SERVER: MIME-Version: 1.0
+
+1: CLIENT -> SERVER: Content-Type: text/html; charset=iso-8859-1
+
+1: CLIENT -> SERVER: 
+
+1: CLIENT -> SERVER: 
+
+1: CLIENT -> SERVER:             <h2>Welcome to EliteFit Gym, Harry!</h2>
+
+1: CLIENT -> SERVER:             <p>Your verification code is: <strong>286470</strong></p>
+
+1: CLIENT -> SERVER:             <p>This code will expire in 30 minutes.</p>
+
+1: CLIENT -> SERVER:         
+
+1: CLIENT -> SERVER: 
+
+1: CLIENT -> SERVER: .
+
+2: SERVER -> CLIENT: 250 2.0.0 OK  1748957427 5b1f17b1804b1-450d7fa2541sm158884825e9.15 - gsmtp
+
+1: CLIENT -> SERVER: QUIT
+
+2: SERVER -> CLIENT: 221 2.0.0 closing connection 5b1f17b1804b1-450d7fa2541sm158884825e9.15 - gsmtp
+

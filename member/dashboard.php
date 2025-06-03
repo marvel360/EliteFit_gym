@@ -72,7 +72,7 @@ require_once '../includes/header.php';
     
     <div class="col-md-8">
         <div class="card mb-4">
-            <div class="card-header bg-success text-white">
+            <div class="card-header bg-primary text-white">
                 <h5>My Workout Plans</h5>
             </div>
             <div class="card-body">
@@ -122,7 +122,7 @@ require_once '../includes/header.php';
         </div>
         
         <div class="card">
-            <div class="card-header bg-info text-white">
+            <div class="card-header bg-primary  text-white">
                 <h5>Upcoming Sessions</h5>
             </div>
             <div class="card-body">

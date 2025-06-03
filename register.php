@@ -142,7 +142,7 @@ function sendVerificationEmail(string $toEmail, string $firstName, string $lastN
         $mail->Host       = 'smtp.gmail.com';                  // Your SMTP server
         $mail->SMTPAuth   = true;
         $mail->Username   = 'codexcoder082@gmail.com';                  // Your email
-        $mail->Password   = 'ngxblhhvslnvcflr';               // Your email password or app password
+        $mail->Password   = '';               // Your email password or app password
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;    // TLS encryption
         $mail->Port       = 587;                               // TLS port
         
@@ -174,8 +174,6 @@ function sendVerificationEmail(string $toEmail, string $firstName, string $lastN
 ?>
 
 <!-- Rest of your HTML form remains exactly the same -->
-
-<?php require_once 'includes/footer.php'; ?>
 <div class="row justify-content-center">
     <div class="col-md-6">
         <div class="card">
@@ -198,7 +196,7 @@ function sendVerificationEmail(string $toEmail, string $firstName, string $lastN
                         <label for="username" class="form-label">Username</label>
                         <input type="text" class="form-control" id="username" name="username" 
                                value="<?= htmlspecialchars($_POST['username'] ?? '') ?>" required>
-                    </div>
+                            </div>
                     <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
                         <input type="email" class="form-control" id="email" name="email" 
@@ -298,3 +296,5 @@ document.getElementById('password').addEventListener('input', function() {
     strengthText.textContent = `Password strength: ${text}`;
 });
 </script>
+
+<?php require_once 'includes/footer.php'; ?>

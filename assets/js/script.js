@@ -53,13 +53,13 @@ document.addEventListener('DOMContentLoaded', function() {
         // Implementation from earlier
     }
 
-    // Format a date to DD-MM-YYYY
+    // Format a date to DD/MM/YYYY
 const formatDate = (date) => {
-    const day = String(date.getDate()).padStart(2, '0'); // Ensure 2 digits (e.g., 05)
-    const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are 0-indexed
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, '0');
     const year = date.getFullYear();
-    return `${day}-${month}-${year}`;
-  };
+    return `${day}/${month}/${year}`;
+};
   
   // Example usage:
   const today = new Date();
@@ -73,4 +73,25 @@ const formatDate = (date) => {
         minDate: 0
     });
 });
+
+/**
+ * Securely redirect to a trusted URL.
+ * @param {string} url - The absolute or relative URL to redirect to.
+ */
+function secureRedirect(url) {
+    // Only allow redirects to your own domain or trusted paths
+    if (url.startsWith('/') || url.startsWith(window.location.origin)) {
+        window.location.href = url;
+    }
+}
+
+// Example usage:
+// secureRedirect('/elitefit_gym/login.php');
+
+    const logoutBtn = document.getElementById('logoutBtn');
+    if (logoutBtn) {
+        logoutBtn.onclick = function() {
+            secureRedirect('<?php echo BASE_URL; ?>/logout.php');
+        };
+    }
 });

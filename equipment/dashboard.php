@@ -38,6 +38,69 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION['error'] = "Failed to update equipment";
             }
         }
+    } elseif (isset($_POST['upload_equipment']) && isset($_FILES['equipment_file'])) {
+        $file = $_FILES['equipment_file'];
+        $ext = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
+        $allowed = ['csv', 'xlsx'];
+
+        if (!in_array($ext, $allowed)) {
+            $_SESSION['error'] = "Invalid file type. Only CSV and XLSX are allowed.";
+        } else {
+            require_once '../vendor/autoload.php';
+            $equipmentData = [];
+
+            if ($ext === 'csv') {
+                if (($handle = fopen($file['tmp_name'], 'r')) !== false) {
+                    // Skip header
+                    fgetcsv($handle);
+                    while (($row = fgetcsv($handle)) !== false) {
+                        // Expected: name, description, status, last_maintenance
+                        $equipmentData[] = [
+                            'name' => $row[0] ?? '',
+                            'description' => $row[1] ?? '',
+                            'status' => $row[2] ?? 'available',
+                            'last_maintenance' => $row[3] ?? null,
+                        ];
+                    }
+                    fclose($handle);
+                }
+            } elseif ($ext === 'xlsx') {
+                $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load($file['tmp_name']);
+                $sheet = $spreadsheet->getActiveSheet();
+                foreach ($sheet->getRowIterator(2) as $row) { // Skip header
+                    $cellIterator = $row->getCellIterator();
+                    $cellIterator->setIterateOnlyExistingCells(false);
+                    $cells = [];
+                    foreach ($cellIterator as $cell) {
+                        $cells[] = $cell->getValue();
+                    }
+                    $equipmentData[] = [
+                        'name' => $cells[0] ?? '',
+                        'description' => $cells[1] ?? '',
+                        'status' => $cells[2] ?? 'available',
+                        'last_maintenance' => $cells[3] ?? null,
+                    ];
+                }
+            }
+
+            // Insert into DB
+            $inserted = 0;
+            foreach ($equipmentData as $eq) {
+                if (!empty($eq['name'])) {
+                    $stmt = $pdo->prepare("INSERT INTO equipment (name, description, status, last_maintenance) VALUES (?, ?, ?, ?)");
+                    if ($stmt->execute([
+                        $eq['name'],
+                        $eq['description'],
+                        $eq['status'],
+                        $eq['last_maintenance']
+                    ])) {
+                        $inserted++;
+                    }
+                }
+            }
+            $_SESSION['success'] = "$inserted equipment items uploaded successfully.";
+            redirect("dashboard.php");
+        }
     }
 }
 
@@ -174,4 +237,58 @@ if (isset($_SESSION['success'])) {
         </div>
     </div>
 </div>
+
+<!-- Equipment Bulk Upload -->
+<div class="card mb-4">
+    <div class="card-header bg-info text-white">
+        <h5>Bulk Upload Equipment</h5>
+    </div>
+    <div class="card-body">
+        <form method="post" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label class="form-label">Upload CSV or XLSX File</label>
+                <input type="file" class="form-control" name="equipment_file" accept=".csv, .xlsx" required>
+            </div>
+            <button type="submit" name="upload_equipment" class="btn btn-info w-100">Upload</button>
+        </form>
+    </div>
+</div>
+
+<!-- Equipment Reports -->
+<div class="card mb-4">
+    <div class="card-header bg-secondary text-white">
+        <h5>Generate Equipment Report</h5>
+    </div>
+    <div class="card-body">
+        <form method="get" action="equipment_report.php" target="_blank">
+            <div class="row mb-3">
+                <div class="col">
+                    <label class="form-label">From</label>
+                    <input type="date" class="form-control" name="from_date" required>
+                </div>
+                <div class="col">
+                    <label class="form-label">To</label>
+                    <input type="date" class="form-control" name="to_date" required>
+                </div>
+                <div class="col">
+                    <label class="form-label">Report Type</label>
+                    <select class="form-select" name="type" required>
+                        <option value="status">Status Over Time</option>
+                        <option value="maintenance">Maintenance History</option>
+                    </select>
+                </div>
+                <div class="col">
+                    <label class="form-label">Format</label>
+                    <select class="form-select" name="format" required>
+                        <option value="pdf">PDF</option>
+                        <option value="xlsx">XLSX</option>
+                        <option value="csv">CSV</option>
+                    </select>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-secondary w-100">Download Report</button>
+        </form>
+    </div>
+</div>
+
 <?php require_once '../includes/footer.php'; ?>
